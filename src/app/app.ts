@@ -3,10 +3,20 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-tutorial');
+ 
+  name='Angular Tutorial'
+  isAdmin=true;
+
+  count=5;
+  price=199.99
+  isLogin=true;
+  title=signal("Angular Tutorial Signal");
+  
+  getUser(){
+    return "Bappa"
+  }
 }
