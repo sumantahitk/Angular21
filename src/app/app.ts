@@ -6,27 +6,20 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   imports:[],
-  //  template: `<h2 class ="box"> Hello World</h2>`,
-  // styles: [`.box{
-  //    padding: 10px;
-  //   background: gold;
-  //   border-radius: 10px;
-  //   }`]
   templateUrl: './app.html',
-  styleUrls: ['./app.css','./button.css']
+  styleUrls: ['./app.css']
 })
 export class App {
- 
-name:string="";
-city:string="";
-email:string="";
+ isLoggedIn=true;
+ marks=65;
+ show=true;
+ number=0;
 
-handleInput(val:string){
-  this.name=val;
-}
+ handleNum(e:any){
+    this.number=e;
+ }
 
-getEmail(val:string){
-  this.email=val;
-}
-
+ toggleBox(){
+  this.show=!this.show;
+ }
 }

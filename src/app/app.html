@@ -1,19 +1,25 @@
-<!-- <div class="hero-box">
-    Welcome Sumanta !
-</div> -->
+@if (isLoggedIn){
+    <h1>Welcome Sumanta</h1>
+}
+@else {
+    <h2>Please Login </h2>
+}
 
+@if(marks>80){
+    <p>Pass</p>
+}
+@else{
+    <p>Fail</p>
+}
+<button (click)="toggleBox()">Toggle</button>
 
-<!-- <div class="text-center rounded">
-    Welcome Sumanta !
-</div> -->
-<!-- 
-<style>
-    .title{
-        color: gray;
-        font-size: 22;
+@if(show){
+    <div class="box">This is a Box</div>
+}
 
-    }
-</style> -->
+<input (input)="handleNum($event.target.value)" placeholder="Enter Your Age !">
 
-<h3 class="box"> Section</h3>
+@if (number>18){
+    <p>You are eligible for Vote </p>
+}
 

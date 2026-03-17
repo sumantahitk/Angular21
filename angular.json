@@ -26,8 +26,8 @@
               }
             ],
             "styles": [
-              "src/styles.css",
-              "src/globalStyle.css"
+              "src/styles.css"
+             
             ]
           },
           "configurations": {
