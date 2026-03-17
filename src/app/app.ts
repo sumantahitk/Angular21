@@ -11,32 +11,16 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
  
-  value: number = 0;
+name:string="";
+city:string="";
+email:string="";
 
+handleInput(val:string){
+  this.name=val;
+}
 
-  // Increment() {
-  //   this.value= this.value + 1;
-  // }
-
-  //  Decrement() {
-  //   this.value-=1;
-  // }
-
-  // Reset(){
-  //   this.value=0;
-  // }
-
-  handle(str:string){
-    if(str=='plus'){
-      this.value++;
-    }else if(str=='minus'){
-      this.value--;
-    }
-    else{
-      this.value=0;
-    }
-  }
-
- 
+getEmail(val:string){
+  this.email=val;
+}
 
 }

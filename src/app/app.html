@@ -1,13 +1,13 @@
-<h1>Simple Counter APP</h1>
+<input (input)="handleInput($event.target.value)"  placeholder="Enter Name">
 
+<p>Your Name : {{name}}</p>
 
-<h2>{{value}}</h2>
+<input (input)="city=$event.target.value" placeholder="Enter City">
 
-<div class="box">
-    <!-- <button (click)="Increment()">+</button>
-<button (click)="Decrement()">-</button>
-<button (click)="Reset()" class ="reset" >Reset</button> -->
-<button (click)="handle('plus')">+</button>
-<button (click)="handle('minus')">-</button>
-<button (click)="handle('reset')" class="reset">Reset</button>
-</div>
+<p>Your City:{{city}}</p>
+
+<input #userInput placeholder="Enter Email">
+
+<button (click)="getEmail(userInput.value)">Get Email</button>
+
+<p>Your Email:{{email}}</p>
