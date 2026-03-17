@@ -6,8 +6,14 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   imports:[],
+  //  template: `<h2 class ="box"> Hello World</h2>`,
+  // styles: [`.box{
+  //    padding: 10px;
+  //   background: gold;
+  //   border-radius: 10px;
+  //   }`]
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css','./button.css']
 })
 export class App {
  
