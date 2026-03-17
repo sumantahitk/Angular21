@@ -11,31 +11,32 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
  
-  name: string = "";
-  key: string = "";
+  value: number = 0;
 
-  handleClick() {
-    console.log("Button clicked");
+
+  // Increment() {
+  //   this.value= this.value + 1;
+  // }
+
+  //  Decrement() {
+  //   this.value-=1;
+  // }
+
+  // Reset(){
+  //   this.value=0;
+  // }
+
+  handle(str:string){
+    if(str=='plus'){
+      this.value++;
+    }else if(str=='minus'){
+      this.value--;
+    }
+    else{
+      this.value=0;
+    }
   }
 
-  typing(event: any) {
-    this.name = event.target.value;
-  }
-
-  onKeyUp(event: any) {
-    this.key = event.key;
-  }
-
-  onHover() {
-    console.log("Mouse entered");
-  }
-
-  onLeave() {
-    console.log("Mouse left");
-  }
-
-  onBlur() {
-  console.log("Input lost focus");
-}
+ 
 
 }

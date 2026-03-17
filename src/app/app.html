@@ -1,17 +1,13 @@
-<h1>Sumanta Rakshit</h1>
+<h1>Simple Counter APP</h1>
 
 
+<h2>{{value}}</h2>
 
-<button (click)="handleClick()">Clicked me </button>
-
-<input (input)="typing($event)" placeholder="Type Something">
-
-<p>{{name}}</p>
-
-
-<input (keyup)="onKeyUp($event)" placeholder="Press any Key">
-<p>{{key}}</p>
-
-<div (mouseover)="onHover()" (mouseleave)="onLeave()" class="hover-box">Hover Test</div>
-
-<input (blur)="onBlur()" placeholder="Click and then leave">
+<div class="box">
+    <!-- <button (click)="Increment()">+</button>
+<button (click)="Decrement()">-</button>
+<button (click)="Reset()" class ="reset" >Reset</button> -->
+<button (click)="handle('plus')">+</button>
+<button (click)="handle('minus')">-</button>
+<button (click)="handle('reset')" class="reset">Reset</button>
+</div>
