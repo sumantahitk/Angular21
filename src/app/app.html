@@ -1,9 +1,17 @@
 <h1>Sumanta Rakshit</h1>
 
-<!-- <p>{{value}}</p> -->
-
-<button (click)="handle()">submit</button>
 
 
-<h3>{{name}}</h3>
+<button (click)="handleClick()">Clicked me </button>
 
+<input (input)="typing($event)" placeholder="Type Something">
+
+<p>{{name}}</p>
+
+
+<input (keyup)="onKeyUp($event)" placeholder="Press any Key">
+<p>{{key}}</p>
+
+<div (mouseover)="onHover()" (mouseleave)="onLeave()" class="hover-box">Hover Test</div>
+
+<input (blur)="onBlur()" placeholder="Click and then leave">

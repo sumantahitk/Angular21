@@ -11,33 +11,31 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
  
- 
-  // value=10;
+  name: string = "";
+  key: string = "";
 
-  // value="Sumanta"
-
-  name:string|number ="Bappa";
-
-  age:number=18
-
-  value:any =30
-
-  // value ="hello"
-
-  roll:unknown = 34
-
-  // name:string =10
-
-  handle(){
-    let value;
-    value=10;
-    value="sumanta"
-
-    console.log(value);
+  handleClick() {
+    console.log("Button clicked");
   }
 
-  sum(a:number,b:number){
-    return a+b;
+  typing(event: any) {
+    this.name = event.target.value;
   }
-  
+
+  onKeyUp(event: any) {
+    this.key = event.key;
+  }
+
+  onHover() {
+    console.log("Mouse entered");
+  }
+
+  onLeave() {
+    console.log("Mouse left");
+  }
+
+  onBlur() {
+  console.log("Input lost focus");
+}
+
 }
