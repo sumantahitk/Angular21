@@ -11,15 +11,33 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
  
-  name='Angular Tutorial';
-  count=0;
-  increment(){
-    let abc="abc";
-    this.count=this.count+1;
-    this.helloworld();
+ 
+  // value=10;
+
+  // value="Sumanta"
+
+  name:string|number ="Bappa";
+
+  age:number=18
+
+  value:any =30
+
+  // value ="hello"
+
+  roll:unknown = 34
+
+  // name:string =10
+
+  handle(){
+    let value;
+    value=10;
+    value="sumanta"
+
+    console.log(value);
   }
-  helloworld(){
-    console.log("Hello World")
+
+  sum(a:number,b:number){
+    return a+b;
   }
   
 }
