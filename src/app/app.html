@@ -1,50 +1,25 @@
-@if (isLoggedIn){
-    <h1>Welcome Sumanta</h1>
-}
-@else {
-    <h2>Please Login </h2>
+@for (item of items ; track $index){
+    <p>index- {{$index}} Value- {{item}}</p>
 }
 
-@if(marks>80){
-    <p>Pass</p>
-}
-@else{
-    <p>Fail</p>
-}
-<button (click)="toggleBox()">Toggle</button>
 
-@if(show){
-    <div class="box">This is a Box</div>
+@for(u of users;track $index ){
+    <div>
+        <h4>{{u.name}}</h4>
+        <p>Age: {{u.age}}</p>
+    </div>
 }
 
-<input (input)="handleNum($event.target.value)" placeholder="Enter Your Age !">
 
-@if (number>18){
-    <p>You are eligible for Vote </p>
+@for (item of items ; track $index ; let i=$index){
+    <p>{{item}}</p>
+    <button (click)="removeItem(i)">Delete</button>
 }
 
-@if (status=== "pending"){
-    <h3>Order Pending</h3>
-}
-@else if(status==="processing")
-{
-    <h3>Order Processing</h3>
-}
-@else
-    {<h3>Order Placed</h3>}
-
-
-@switch(value){
-    @case('home'){
-        <p>Home Page</p>
-    }
-     @case('about'){
-        <p>About</p>
-    }
-     @case('contact'){
-        <p>Contact</p>
-    }
-    @default{
-        <p>Page not found</p>
+@for(i of num ;track $index){
+    @if(i%2==0){
+        <p>{{i}}: Even number</p>
+    }@else{
+         <p>{{i}}: Odd number</p>
     }
 }

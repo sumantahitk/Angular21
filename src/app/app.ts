@@ -10,21 +10,16 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.css']
 })
 export class App {
- isLoggedIn=true;
- marks=65;
- show=true;
- number=0;
+ items=['c++','c','java','python']
 
- value:string="home";
- 
- status:string="processing"
- 
- handleNum(e:any){
-    this.number=e;
+ users=[
+  {name:'Rohit',age:38},
+  {name:'Virat',age:37},
+  {name:'MSD',age:44}
+ ]
+
+ removeItem(i:number){
+  this.items.splice(i,1);
  }
-
- toggleBox(){
-  this.show=!this.show;
- }
-
+ num=[1,2,3,4,5,6]
 }
