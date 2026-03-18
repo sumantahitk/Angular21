@@ -23,3 +23,43 @@
          <p>{{i}}: Odd number</p>
     }
 }
+
+<!-- @for (item of items ; track $index){
+    <p>{{$index}}: {{item}}</p>
+    <p>Total count: {{$count}}</p>
+} -->
+
+@for (item of items ; track $index;let i=$index ; let c=$count){
+    <p>{{i}}: {{item}}</p>
+    <p>Total count: {{c}}</p>
+}
+
+@for (item of items ; track $index){
+    @if($first){
+        <p>First Item: {{item}}</p>
+    }
+    @else if($last){
+        <p>Last Item: {{item}}</p>
+    }
+    @else{
+        <p>{{item}}</p>
+    }
+   
+}
+
+@for (item of items ; track $index){
+   <p [style.background]="$even ? 'red' : 'yellow'">
+    {{item}}</p>
+}
+
+@for(i of num ;track $index){
+  <div>
+    <strong>{{i}}</strong>
+    <span>| Index: {{$index}}</span>
+    <span>| Even: {{$even}}</span>
+    <span>| Odd: {{$odd}}</span>
+    <span>| First: {{$first}}</span>
+    <span>| Last: {{$last}}</span>
+    <span>| Count: {{$count}}</span>
+  </div>
+}
