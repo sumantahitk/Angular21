@@ -11,3 +11,14 @@
 <button (click)="increment()">+</button>
 <button (click)="decrement()">-</button>
 <button (click)="reset()">Reset</button>
+
+
+<h3>{{u().name}}</h3>
+
+@for (item of num(); track $index) {
+  <p>{{item}}</p>
+}
+
+<button (click)="setNumber()">Set number</button>
+
+<button (click)="addNumber()">Update number</button>

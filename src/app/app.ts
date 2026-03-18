@@ -1,7 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-
+interface User{
+  name:string;
+  age:number
+}
 
 @Component({
   selector: 'app-root',
@@ -10,9 +13,22 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.css']
 })
 export class App {
- count= signal(10);//signal created
+ count= signal<number>(10);//signal created
  val=20
-// count.update(c=>c+1);
+ name= signal<string>('Angular')
+
+ num=signal<number[]>([1,2,3,4]);
+ 
+ user=signal<{name:string,age:number}>({
+  name:'Sumanta',
+  age:23
+ })
+
+ u=signal<User>({
+   name:'Sumanta',
+  age:23
+ })
+ // count.update(c=>c+1);
     increment(){
       this.count.update(c=>c+1);
     }
@@ -22,4 +38,12 @@ export class App {
     reset(){
       this.count.set(0);
     }
+
+    addNumber(){
+    this.num.update(arr=>[...arr,6])
+}
+
+setNumber(){
+  this.num.set([100,200,300])
+}
 }
