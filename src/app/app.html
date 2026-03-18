@@ -1,24 +1,18 @@
 <h2>Signal</h2>
 
-<p>value: {{val}}</p>
-<p>Signal : {{count()}}</p>
+<p>{{count()}}</p>
+<p>{{doubleCount()}}</p>
+<p>{{tripleCount()}}</p>
 
-<button (click)="count.set(50)">Change Signal</button>
-<!-- <button (click)="val++">Change Value</button> -->
+
+
 
 
 
 <button (click)="increment()">+</button>
-<button (click)="decrement()">-</button>
-<button (click)="reset()">Reset</button>
 
 
-<h3>{{u().name}}</h3>
+<h1>{{fullName()}}</h1>
 
-@for (item of num(); track $index) {
-  <p>{{item}}</p>
-}
+<p>{{total()}}</p>
 
-<button (click)="setNumber()">Set number</button>
-
-<button (click)="addNumber()">Update number</button>
