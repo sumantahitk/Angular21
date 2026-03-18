@@ -1,18 +1,13 @@
-<h2>Signal</h2>
+<h1>Hello World</h1>
 
-<p>{{count()}}</p>
-<p>{{doubleCount()}}</p>
-<p>{{tripleCount()}}</p>
-
-
-
-
-
+<h4>{{count()}}</h4>
 
 <button (click)="increment()">+</button>
 
+<button (click)="toggle()">Toggel</button>
 
-<h1>{{fullName()}}</h1>
+<button (click)="show()">Show</button>
 
-<p>{{total()}}</p>
-
+@if(message()){
+    <p>{{message()}}</p>
+}

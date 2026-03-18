@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 interface User{
@@ -14,25 +14,49 @@ interface User{
 })
 export class App {
  count= signal<number>(10);//signal created
- 
- doubleCount = computed<number>(()=>this.count()*2)
 
- tripleCount=computed<number>(()=>this.count()*3)
+//  constructor(){
+//   effect(()=>{
+//     console.log("count value: ",this.count());
+//   })
+//  }
 
  increment(){
   this.count.set(this.count()+1);
  }
 
-firstName = signal<string>('Praveen');
-lastName = signal<string>('Kumar');
+ isDrakMode=signal(false);
 
-fullName = computed<string>(() => 
-  `${this.firstName()} ${this.lastName()}`
-);
+//  constructor(){
+// effect(()=>{
+//     if(this.isDrakMode()){
+//       document.body.style.backgroundColor='black';
+//       document.body.style.color='white'
+//     }else{
+//        document.body.style.backgroundColor='white';
+//       document.body.style.color='black'
+//     }
+// })
+//  }
 
-price=signal<number[]>([10,23,45,27,13])
-total=computed<number>(()=>{
-  return this.price().reduce((acc,curr)=> acc+curr,0);
-})
+ toggle(){
+  this.isDrakMode.update(mode=>!mode);
+ }
+
+ message=signal("")
+ constructor(){
+  effect(()=>{
+    if(this.message()){
+    setTimeout(()=>{
+      this.message.set("");
+
+    },2000);
+  }
+  });
+ }
+
+ show(){
+  this.message.set("hello this is temporary message")
+ }
 
 }
