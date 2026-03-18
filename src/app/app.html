@@ -23,3 +23,28 @@
     <p>You are eligible for Vote </p>
 }
 
+@if (status=== "pending"){
+    <h3>Order Pending</h3>
+}
+@else if(status==="processing")
+{
+    <h3>Order Processing</h3>
+}
+@else
+    {<h3>Order Placed</h3>}
+
+
+@switch(value){
+    @case('home'){
+        <p>Home Page</p>
+    }
+     @case('about'){
+        <p>About</p>
+    }
+     @case('contact'){
+        <p>Contact</p>
+    }
+    @default{
+        <p>Page not found</p>
+    }
+}

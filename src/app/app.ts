@@ -15,6 +15,10 @@ export class App {
  show=true;
  number=0;
 
+ value:string="home";
+ 
+ status:string="processing"
+ 
  handleNum(e:any){
     this.number=e;
  }
@@ -22,4 +26,5 @@ export class App {
  toggleBox(){
   this.show=!this.show;
  }
+
 }
