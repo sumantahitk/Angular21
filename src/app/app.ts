@@ -10,16 +10,16 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.css']
 })
 export class App {
- items=['c++','c','java','python']
-
- users=[
-  {name:'Rohit',age:38},
-  {name:'Virat',age:37},
-  {name:'MSD',age:44}
- ]
-
- removeItem(i:number){
-  this.items.splice(i,1);
- }
- num=[1,2,3,4,5,6]
+ count= signal(10);//signal created
+ val=20
+// count.update(c=>c+1);
+    increment(){
+      this.count.update(c=>c+1);
+    }
+    decrement(){
+      this.count.update(c=>c-1);
+    }
+    reset(){
+      this.count.set(0);
+    }
 }

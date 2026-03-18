@@ -1,65 +1,13 @@
-@for (item of items ; track $index){
-    <p>index- {{$index}} Value- {{item}}</p>
-}
+<h2>Signal</h2>
+
+<p>value: {{val}}</p>
+<p>Signal : {{count()}}</p>
+
+<button (click)="count.set(50)">Change Signal</button>
+<!-- <button (click)="val++">Change Value</button> -->
 
 
-@for(u of users;track $index ){
-    <div>
-        <h4>{{u.name}}</h4>
-        <p>Age: {{u.age}}</p>
-    </div>
-}
 
-
-@for (item of items ; track $index ; let i=$index){
-    <p>{{item}}</p>
-    <button (click)="removeItem(i)">Delete</button>
-}
-
-@for(i of num ;track $index){
-    @if(i%2==0){
-        <p>{{i}}: Even number</p>
-    }@else{
-         <p>{{i}}: Odd number</p>
-    }
-}
-
-<!-- @for (item of items ; track $index){
-    <p>{{$index}}: {{item}}</p>
-    <p>Total count: {{$count}}</p>
-} -->
-
-@for (item of items ; track $index;let i=$index ; let c=$count){
-    <p>{{i}}: {{item}}</p>
-    <p>Total count: {{c}}</p>
-}
-
-@for (item of items ; track $index){
-    @if($first){
-        <p>First Item: {{item}}</p>
-    }
-    @else if($last){
-        <p>Last Item: {{item}}</p>
-    }
-    @else{
-        <p>{{item}}</p>
-    }
-   
-}
-
-@for (item of items ; track $index){
-   <p [style.background]="$even ? 'red' : 'yellow'">
-    {{item}}</p>
-}
-
-@for(i of num ;track $index){
-  <div>
-    <strong>{{i}}</strong>
-    <span>| Index: {{$index}}</span>
-    <span>| Even: {{$even}}</span>
-    <span>| Odd: {{$odd}}</span>
-    <span>| First: {{$first}}</span>
-    <span>| Last: {{$last}}</span>
-    <span>| Count: {{$count}}</span>
-  </div>
-}
+<button (click)="increment()">+</button>
+<button (click)="decrement()">-</button>
+<button (click)="reset()">Reset</button>
