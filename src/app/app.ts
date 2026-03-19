@@ -1,8 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, effect, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { PipeShortNamePipe } from './pipe/pipe-short-name-pipe';
-import { ConvertPipe } from './pipe/convert-pipe';
 
 interface User{
   name:string;
@@ -11,14 +8,37 @@ interface User{
 
 @Component({
   selector: 'app-root',
-  imports:[CommonModule,ConvertPipe,PipeShortNamePipe],
+  imports:[],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class App {
 
-  fullName="Sumanta Rakshit";
-  usd1 =10;
-  usdToInr=85
+  count=signal(0);
+  name=signal('Angular')
 
+  setCount(){
+    this.count.set(2);
+  }
+
+  val=signal(2);
+  price=signal(6);
+
+
+  doubleVal=computed(()=>this.val()*2);
+
+  total=computed(()=>this.val()*this.price());
+
+  constructor(){
+    effect(()=>{
+      console.log("Total: ",this.total());
+    })
+  }
+
+  increment(){
+    this.val.update(c=>c+1);
+  }
+  updatePrice(){
+    this.price.update(p=>p+1);
+  }
 }

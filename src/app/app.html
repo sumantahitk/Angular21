@@ -1,30 +1,13 @@
-<!-- 
-<h1>{{lname | uppercase}}</h1>
+<h1>{{count()}}</h1>
 
-<h1>{{uname | lowercase}}</h1>
+<h1>{{name()}}</h1>
 
-<p>Short Date: {{today |date:'short' }}</p>
+<button (click)="setCount()">Set Count</button>
 
-<p>Full Date: {{today |date:'fullDate' }}</p>
+<h1>{{val()}}</h1>
+<h1>{{doubleVal()}}</h1>
+<h1>{{price()}}</h1>
+<h1>{{total()}}</h1>
 
-<p>Custom Date: {{today |date:'dd/MM/yyyy' }}</p>
-
-<p>INR : {{amount | currency: 'INR'}}</p>
-
-<p>USD : {{amount | currency: 'USD'}}</p>
-
-<p>EUR : {{amount | currency: 'EUR'}}</p>
-
-<p>Custom format : {{amount | currency: 'INR' : 'symbol' : '1.0-0' }}</p>
-
-<p>{{per |percent}}</p>
-
-<p>{{user|json}}</p> -->
-
-
-<!-- Custom Pipe -->
-
-<h1>{{fullName | pipeShortName}}</h1>
-
-<h2>{{usd1 | currency:'USD'}}</h2>
-<h2>{{usd1 | convert: usdToInr | currency : 'INR'}}</h2>
+<button (click)="increment()">val</button>
+<button (click)="updatePrice()">price</button>
