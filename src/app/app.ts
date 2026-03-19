@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, computed, effect, signal } from '@angular/core';
+
+import { Component, signal} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 interface User{
   name:string;
@@ -8,37 +9,26 @@ interface User{
 
 @Component({
   selector: 'app-root',
-  imports:[],
+  imports:[FormsModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class App {
 
-  count=signal(0);
-  name=signal('Angular')
+  username="Sumanta"
 
-  setCount(){
-    this.count.set(2);
+  name=signal("Bappa")
+
+  user=signal<{name:string; age:number}>({
+    name:"Sumanta Rakshit",
+    age:23
+  })
+ 
+  updateName(value:string){
+    this.user.update(user=>({...user,name:value}));
   }
 
-  val=signal(2);
-  price=signal(6);
-
-
-  doubleVal=computed(()=>this.val()*2);
-
-  total=computed(()=>this.val()*this.price());
-
-  constructor(){
-    effect(()=>{
-      console.log("Total: ",this.total());
-    })
-  }
-
-  increment(){
-    this.val.update(c=>c+1);
-  }
-  updatePrice(){
-    this.price.update(p=>p+1);
+  updateAge(){
+    this.user.update(user=>({...user,age:user.age+1}))
   }
 }

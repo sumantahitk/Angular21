@@ -1,13 +1,19 @@
-<h1>{{count()}}</h1>
 
-<h1>{{name()}}</h1>
+<input [(ngModel)]="username" placeholder="Enter Your Name"/>
 
-<button (click)="setCount()">Set Count</button>
+<p>{{username}}</p>
 
-<h1>{{val()}}</h1>
-<h1>{{doubleVal()}}</h1>
-<h1>{{price()}}</h1>
-<h1>{{total()}}</h1>
 
-<button (click)="increment()">val</button>
-<button (click)="updatePrice()">price</button>
+<input [value]="name()" (input)="name.set($event.target.value)" placeholder="Enter Your Name">
+
+<p>{{name()}}</p>
+
+
+
+<input [value]="user().name" (input)="updateName($event.target.value)" placeholder="Enter Your Name">
+<br><br>
+<p>Updated Name: {{user().name}}</p>
+<hr>
+
+<p>Age: {{user().age}}</p>
+<button (click)="updateAge()">Increase Age</button>
