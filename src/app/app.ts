@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, computed, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -8,55 +9,24 @@ interface User{
 
 @Component({
   selector: 'app-root',
-  imports:[],
+  imports:[CommonModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class App {
- count= signal<number>(10);//signal created
 
-//  constructor(){
-//   effect(()=>{
-//     console.log("count value: ",this.count());
-//   })
-//  }
+  lname="mohit";
+  uname="Mohit"
+ 
+  today=new Date()
 
- increment(){
-  this.count.set(this.count()+1);
- }
+  amount=2500
 
- isDrakMode=signal(false);
+  per =0.35
 
-//  constructor(){
-// effect(()=>{
-//     if(this.isDrakMode()){
-//       document.body.style.backgroundColor='black';
-//       document.body.style.color='white'
-//     }else{
-//        document.body.style.backgroundColor='white';
-//       document.body.style.color='black'
-//     }
-// })
-//  }
-
- toggle(){
-  this.isDrakMode.update(mode=>!mode);
- }
-
- message=signal("")
- constructor(){
-  effect(()=>{
-    if(this.message()){
-    setTimeout(()=>{
-      this.message.set("");
-
-    },2000);
+  user={
+    name:'Sumanta',
+    age:23
   }
-  });
- }
-
- show(){
-  this.message.set("hello this is temporary message")
- }
 
 }

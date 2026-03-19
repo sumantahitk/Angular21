@@ -1,13 +1,22 @@
-<h1>Hello World</h1>
 
-<h4>{{count()}}</h4>
+<h1>{{lname | uppercase}}</h1>
 
-<button (click)="increment()">+</button>
+<h1>{{uname | lowercase}}</h1>
 
-<button (click)="toggle()">Toggel</button>
+<p>Short Date: {{today |date:'short' }}</p>
 
-<button (click)="show()">Show</button>
+<p>Full Date: {{today |date:'fullDate' }}</p>
 
-@if(message()){
-    <p>{{message()}}</p>
-}
+<p>Custom Date: {{today |date:'dd/MM/yyyy' }}</p>
+
+<p>INR : {{amount | currency: 'INR'}}</p>
+
+<p>USD : {{amount | currency: 'USD'}}</p>
+
+<p>EUR : {{amount | currency: 'EUR'}}</p>
+
+<p>Custom format : {{amount | currency: 'INR' : 'symbol' : '1.0-0' }}</p>
+
+<p>{{per |percent}}</p>
+
+<p>{{user|json}}</p>
