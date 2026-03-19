@@ -1,31 +1,38 @@
-
-import { Component, signal} from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-interface User{
-  name:string;
-  age:number
-}
-
+import { Component, signal } from '@angular/core';
 @Component({
   selector: 'app-root',
-  imports:[FormsModule],
+  imports: [],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrl: './app.css'
 })
 export class App {
-  task=signal<string>("");
-  arr=signal<number[]>([]);
-  
-  setTask(e:any){
-    this.arr.update(arr=>[...arr,e]);
+  newTodo = signal('');
+
+  todos = signal<{ text: string; done: boolean }[]>([]);
+
+  addTodo(){
+    const text = this.newTodo().trim();
+
+    if ( text === '' ) {
+      return;
+    }
+
+    this.todos.update( list => [ ...list, { text, done: false } ] );
+
+    this.newTodo.set('');
   }
 
-  removeItem(i:number){
-    if(this.arr().length>0){
-       this.arr().splice(i,1);
-    }
- 
- }
-  
+  toggleTodo( index: number ){
+    this.todos.update( list => 
+      list.map( ( item ,i ) =>
+        i === index ? { ...item, done: !item.done } : item
+      )
+    );
+  }
+
+  deleteTodo( index: number ){
+    this.todos.update( list => 
+      list.filter( ( _, i ) => i !== index )
+    );
+  }
 }

@@ -1,16 +1,24 @@
-<form (submit)="setTask(taskInput.value); taskInput.value=''; $event.preventDefault()">
-    
-  <input #taskInput placeholder="Write Your Task">
-  
-  <button type="submit">Add</button>
+<h2>Todo App</h2>
 
-</form>
+<input placeholder="Write Something..."
+    [value]="newTodo()"
+    (input)="newTodo.set($event.target.value)" >
 
-@if(arr().length > 0) {
-  @for(item of arr(); track $index; let i=$index) {
-   <div class="row">
-     <p>{{i+1}}.         {{ item }}</p>
-     <button (click)="removeItem(i)">Delete</button>
-   </div>
-  }
-}
+<button (click)="addTodo()">Add</button>
+
+<hr>
+
+<ul>
+    @for (todo of todos(); track $index) {
+        <li>
+            <span>{{ $index +1 }}</span>
+
+            <span (click)="toggleTodo($index)"
+                [style.text-decoration]= "todo.done ? 'line-through' : 'none' ">
+                {{ todo.text }}
+            </span>
+
+            <button (click)="deleteTodo($index)">Delete</button>
+        </li>
+    }
+</ul>
