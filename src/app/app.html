@@ -1,19 +1,16 @@
+<form (submit)="setTask(taskInput.value); taskInput.value=''; $event.preventDefault()">
+    
+  <input #taskInput placeholder="Write Your Task">
+  
+  <button type="submit">Add</button>
 
-<input [(ngModel)]="username" placeholder="Enter Your Name"/>
+</form>
 
-<p>{{username}}</p>
-
-
-<input [value]="name()" (input)="name.set($event.target.value)" placeholder="Enter Your Name">
-
-<p>{{name()}}</p>
-
-
-
-<input [value]="user().name" (input)="updateName($event.target.value)" placeholder="Enter Your Name">
-<br><br>
-<p>Updated Name: {{user().name}}</p>
-<hr>
-
-<p>Age: {{user().age}}</p>
-<button (click)="updateAge()">Increase Age</button>
+@if(arr().length > 0) {
+  @for(item of arr(); track $index; let i=$index) {
+   <div class="row">
+     <p>{{i+1}}.         {{ item }}</p>
+     <button (click)="removeItem(i)">Delete</button>
+   </div>
+  }
+}

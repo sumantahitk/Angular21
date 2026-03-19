@@ -14,21 +14,18 @@ interface User{
   styleUrls: ['./app.css']
 })
 export class App {
+  task=signal<string>("");
+  arr=signal<number[]>([]);
+  
+  setTask(e:any){
+    this.arr.update(arr=>[...arr,e]);
+  }
 
-  username="Sumanta"
-
-  name=signal("Bappa")
-
-  user=signal<{name:string; age:number}>({
-    name:"Sumanta Rakshit",
-    age:23
-  })
+  removeItem(i:number){
+    if(this.arr().length>0){
+       this.arr().splice(i,1);
+    }
  
-  updateName(value:string){
-    this.user.update(user=>({...user,name:value}));
-  }
-
-  updateAge(){
-    this.user.update(user=>({...user,age:user.age+1}))
-  }
+ }
+  
 }

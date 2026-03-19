@@ -3,3 +3,10 @@
     background: gold;
     border-radius: 10px;
 }
+
+.row{
+    align-items: baseline;
+    background-color: aqua;
+    justify-content: center;
+    
+}
