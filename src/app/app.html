@@ -1,4 +1,4 @@
-
+<!-- 
 <h1>{{lname | uppercase}}</h1>
 
 <h1>{{uname | lowercase}}</h1>
@@ -19,4 +19,12 @@
 
 <p>{{per |percent}}</p>
 
-<p>{{user|json}}</p>
+<p>{{user|json}}</p> -->
+
+
+<!-- Custom Pipe -->
+
+<h1>{{fullName | pipeShortName}}</h1>
+
+<h2>{{usd1 | currency:'USD'}}</h2>
+<h2>{{usd1 | convert: usdToInr | currency : 'INR'}}</h2>
