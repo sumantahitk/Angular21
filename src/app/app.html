@@ -1,9 +1,34 @@
-<h2>Parent Component</h2>
+<h1>USE OF STORE</h1>
 
-<app-child [name]="username" (notify)="onMessage($event)" #child></app-child>
+<h1>Counter App</h1>
 
-<h3>Old Approach:</h3>
-<p>Message : {{message}}</p>
+<p>Current Count: {{counterStore.count()}}</p>
 
-<h3>New Approach:</h3>
-<p>Msg from child: {{child.message()}}</p>
+<button (click)="counterStore.increment()">+</button>
+
+<button (click)="counterStore.decrement()">-</button>
+
+<button (click)="counterStore.reset()">Reset</button>
+
+<h1>User Application</h1>
+
+@if(userStore.user()){
+    <p>Welcome {{userStore.user()!.name}}</p>
+    @if(userStore.isAdmin()){
+        <p>Admin Access</p>
+    }
+    
+    <button (click)="userStore.logout()">LogOut</button>
+}
+@else{
+    <form (submit)="handleLogin(userName.value,userRole.value) ; $event.preventDefault()">
+
+        <input #userName placeholder="Enter Your Name">
+         <select #userRole>
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+         <button type="submit">Login</button>
+    </form>
+       
+}

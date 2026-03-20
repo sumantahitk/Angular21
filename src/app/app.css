@@ -54,3 +54,17 @@ li button {
   border-radius: 4px;
   font-size: 14px;
 }
+
+form {
+  list-style: none;
+  background: #d0cece;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+
+  display: flex;
+  flex-direction: column;   /* 🔥 IMPORTANT */
+  gap: 10px;                /* spacing between items */
+
+  align-items: flex-start;  /* align left */
+  border-radius: 6px;
+}

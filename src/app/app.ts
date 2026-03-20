@@ -1,18 +1,21 @@
 import { Component, signal } from '@angular/core';
-import { Child } from './child/child';
+import { CounterStore } from './core/store/counter';
+import { UserStore } from './core/store/user';
+
 @Component({
   selector: 'app-root',
-  imports: [Child],
+  imports: [],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
 
-  username:string='Angular'
- 
-  message : string=" ";
+  constructor(public counterStore:CounterStore, public userStore:UserStore){}
 
-  onMessage(msg: string){
-    this.message=msg;
+  handleLogin(name: string, role: string) {
+  if (role === 'admin' || role === 'user') {
+    this.userStore.login(name, role); // ✅ no error now
   }
+}
+  
 }
