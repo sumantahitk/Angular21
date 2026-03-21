@@ -1,21 +1,41 @@
 import { Component, signal } from '@angular/core';
-import { CounterStore } from './core/store/counter';
-import { UserStore } from './core/store/user';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { email } from '@angular/forms/signals';
+
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
 
-  constructor(public counterStore:CounterStore, public userStore:UserStore){}
+  // name =signal('');
+  // email=signal('')
 
-  handleLogin(name: string, role: string) {
-  if (role === 'admin' || role === 'user') {
-    this.userStore.login(name, role); // ✅ no error now
+  // submitform(){
+  //   console.log(`Name: ${this.name()} , Email: ${this.email()}`);
+  // }
+
+  userSignal=signal({name:'',email:''});
+
+  form:any;
+
+  constructor(private fb:FormBuilder){
+    this.form=this.fb.group({
+      name:[''],
+      email:['']
+    })
+
+    this.form.valueChanges.subscribe((value:any)=>{
+      this.userSignal.set(value);
+    })
+
   }
-}
+    submitForm(){
+    console.log(`Name: ${this.userSignal().name} , Email: ${this.userSignal().email}`);
+  }
+  
   
 }

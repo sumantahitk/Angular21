@@ -1,34 +1,13 @@
-<h1>USE OF STORE</h1>
+<h2>Template-Driven Form + Signal</h2>
 
-<h1>Counter App</h1>
+<input [(ngModel)]="name" (ngModelChange)="name.set($event)" placeholder="Enter your name">
 
-<p>Current Count: {{counterStore.count()}}</p>
+<br><br>
+<input [(ngModel)]="email" (ngModelChange)="email.set($event)" placeholder="Enter your email">
 
-<button (click)="counterStore.increment()">+</button>
+<br><br>
 
-<button (click)="counterStore.decrement()">-</button>
+<button (click)="submitform()">Submit</button>
 
-<button (click)="counterStore.reset()">Reset</button>
-
-<h1>User Application</h1>
-
-@if(userStore.user()){
-    <p>Welcome {{userStore.user()!.name}}</p>
-    @if(userStore.isAdmin()){
-        <p>Admin Access</p>
-    }
-    
-    <button (click)="userStore.logout()">LogOut</button>
-}
-@else{
-    <form (submit)="handleLogin(userName.value,userRole.value) ; $event.preventDefault()">
-
-        <input #userName placeholder="Enter Your Name">
-         <select #userRole>
-    <option value="user">User</option>
-    <option value="admin">Admin</option>
-  </select>
-         <button type="submit">Login</button>
-    </form>
-       
-}
+<p>Name: {{name()}}</p>
+<p>Email: {{email()}}</p>
