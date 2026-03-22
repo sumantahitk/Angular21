@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { email } from '@angular/forms/signals';
@@ -5,7 +6,7 @@ import { email } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule,ReactiveFormsModule],
+  imports: [FormsModule,ReactiveFormsModule,CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
