@@ -1,25 +1,29 @@
 
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-
-import { Child } from './child/child';
+import { form ,Field} from '@angular/forms/signals';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [Child],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  title=signal("Hello from App Component");
-  show=signal(true);
-  
-  changeTitle(){
-    this.title.set("Title Changed!")
+ 
+  //Form model based on signals
+  loginModel=signal({
+    email:'',
+    password:''
+  })
+
+  // Create form from signal Model
+  loginForm=form(this.loginModel);
+
+  submit(){
+    console.log(this.loginModel());
   }
 
-  toggle(){
-    this.show.set(!this.show());
-  }
 }
