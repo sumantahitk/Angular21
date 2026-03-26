@@ -1,7 +1,8 @@
 
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { form ,Field} from '@angular/forms/signals';
+import { Component } from '@angular/core';
+
+import { UserService } from './user';
 
 
 
@@ -13,17 +14,22 @@ import { form ,Field} from '@angular/forms/signals';
 })
 export class App {
  
-  //Form model based on signals
-  loginModel=signal({
-    email:'',
-    password:''
-  })
+ users:any[] = [];
 
-  // Create form from signal Model
-  loginForm=form(this.loginModel);
+ constructor(private userService: UserService) {}
 
-  submit(){
-    console.log(this.loginModel());
-  }
+  // ngOnInit(){
+  //   this.userService.getUsers().subscribe((data:any)=>{
+  //     this.users=data;
+  //   })
+  // }
 
+  loading = true;
+
+ngOnInit(){
+  this.userService.getUsers().subscribe((data:any)=>{
+    this.users = data;
+    this.loading = false;
+  });
+}
 }

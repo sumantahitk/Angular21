@@ -1,19 +1,22 @@
-<h3>Login Form Based on Signal</h3>
+<!-- <h3>User List</h3>
+
+<ul>
+    @for (user of users ; track user.id){
+        <li>{{user.name}} - {{user.email}}</li>
+    }
+</ul> -->
 
 
-<input 
- type="email"
- placeholder="Email"
- [field]="loginForm.email"
->
+<h3>User List</h3>
 
-
-<input 
- type="password"
- placeholder="Password"
- [field]="loginForm.password"
->
-
-<button (click)="submit()">Submit</button>
-
-<pre>{{loginModel() | json}}</pre>
+@if (loading) {
+  <p>Loading users...</p>
+} @else if (users.length === 0) {
+  <p>No users found</p>
+} @else {
+  <ul>
+    @for (user of users; track user.id) {
+      <li>{{ user.name }} - {{ user.email }}</li>
+    }
+  </ul>
+}
