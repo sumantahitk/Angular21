@@ -1,3 +1,11 @@
+<!-- <app-child></app-child> -->
 
 
-<router-outlet></router-outlet>
+<h2>LifeCycle Methods</h2>
+
+<button (click)="changeTitle()">Change Input</button>
+<button (click)="toggle()">Toggle Comp</button>
+
+@if (show()){
+  <app-child [title]="title()"></app-child>
+}
