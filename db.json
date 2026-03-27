@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "email": "alice@gmail.com",
+      "isActive": true
+    },
+    {
+      "name": "Bappa Rakshit ",
+      "email": "sumantarakshit0508@gmail.com",
+      "isActive": false,
+      "id": "PlNGcU_0Tug"
+    },
+    {
+      "name": "Raj",
+      "email": "Raj@gmail.com",
+      "isActive": false,
+      "id": "NmfZYcGKIAk"
+    },
+    {
+      "name": "Rohit",
+      "email": "rohit@gmail.com",
+      "isActive": false,
+      "id": "tIXy-jDbTss"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

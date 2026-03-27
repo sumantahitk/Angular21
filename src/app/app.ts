@@ -1,9 +1,11 @@
 
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, Signal } from '@angular/core';
 
-import { UserService } from './user';
+
 import { toSignal } from '@angular/core/rxjs-interop';
+import { User } from './models/user';
+import { UserService } from './services/user';
 
 
 
@@ -15,16 +17,43 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class App {
  
-//  users:any[] = [];
+ users=signal<User[]>([]);
 
-//  constructor(private userService: UserService) {}
+ name=signal<string>('');
+ email=signal<string>('');
 
-//   // ngOnInit(){
-//   //   this.userService.getUsers().subscribe((data:any)=>{
-//   //     this.users=data;
-//   //   })
-//   // }
 
+ constructor(private userService: UserService) {}
+
+  // ngOnInit(){
+  //   this.userService.getUsers().subscribe((data:any)=>{
+  //     this.users=data;
+  //   })
+  // }
+
+   ngOnInit(){
+   this.loadUsers();
+  }
+
+  loadUsers(){
+    this.userService.getUsers().subscribe(data=>
+      {this.users.set(data)}
+    )
+  }
+
+  submitForm(){
+    const payload: User={
+      name:this.name(),
+      email:this.email(),
+      isActive:false
+    };
+    this.userService.addUser(payload).subscribe(()=>{
+      alert('User Added Successfully');
+      this.loadUsers();
+      this.name.set('');
+      this.email.set('');
+    })
+  }
 //   loading = true;
 
 // ngOnInit(){
@@ -35,6 +64,8 @@ export class App {
 // }
 
 
-  userservice=inject(UserService);
-  users:any=toSignal(this.userservice.getUsers());
+  // userservice=inject(UserService);
+  // users=toSignal<User[]>(this.userservice.getUsers());
+
+
 }
