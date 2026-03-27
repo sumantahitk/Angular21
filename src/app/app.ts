@@ -1,8 +1,9 @@
 
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { UserService } from './user';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 
 
@@ -14,22 +15,26 @@ import { UserService } from './user';
 })
 export class App {
  
- users:any[] = [];
+//  users:any[] = [];
 
- constructor(private userService: UserService) {}
+//  constructor(private userService: UserService) {}
 
-  // ngOnInit(){
-  //   this.userService.getUsers().subscribe((data:any)=>{
-  //     this.users=data;
-  //   })
-  // }
+//   // ngOnInit(){
+//   //   this.userService.getUsers().subscribe((data:any)=>{
+//   //     this.users=data;
+//   //   })
+//   // }
 
-  loading = true;
+//   loading = true;
 
-ngOnInit(){
-  this.userService.getUsers().subscribe((data:any)=>{
-    this.users = data;
-    this.loading = false;
-  });
-}
+// ngOnInit(){
+//   this.userService.getUsers().subscribe((data:any)=>{
+//     this.users = data;
+//     this.loading = false;
+//   });
+// }
+
+
+  userservice=inject(UserService);
+  users:any=toSignal(this.userservice.getUsers());
 }
