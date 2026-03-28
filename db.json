@@ -7,22 +7,34 @@
       "isActive": true
     },
     {
-      "name": "Bappa Rakshit ",
-      "email": "sumantarakshit0508@gmail.com",
+      "name": "Ram",
+      "email": "ram@gmail.com",
       "isActive": false,
-      "id": "PlNGcU_0Tug"
+      "id": "q_K3PE4_a1k"
     },
     {
       "name": "Raj",
-      "email": "Raj@gmail.com",
+      "email": "raj@gmail.com",
       "isActive": false,
-      "id": "NmfZYcGKIAk"
+      "id": "npFQmGdSayI"
     },
     {
-      "name": "Rohit",
-      "email": "rohit@gmail.com",
+      "name": "Rahul",
+      "email": "rahul@gmail.com",
       "isActive": false,
-      "id": "tIXy-jDbTss"
+      "id": "9d0QX2BQ33E"
+    },
+    {
+      "name": "Alice ",
+      "email": "alice@gmail.com",
+      "isActive": false,
+      "id": "3-PN1rN8DCI"
+    },
+    {
+      "name": "hel",
+      "email": "h@gmail.com",
+      "isActive": false,
+      "id": "7cRIkaFTP4U"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

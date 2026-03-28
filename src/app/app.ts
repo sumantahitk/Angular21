@@ -16,14 +16,23 @@ import { UserService } from './services/user';
   styleUrl: './app.css'
 })
 export class App {
- 
- users=signal<User[]>([]);
 
- name=signal<string>('');
- email=signal<string>('');
+  users = signal<User[]>([]);
+
+  name = signal<string>('');
+  email = signal<string>('');
+  editingUpdateId = signal<number | null>(null);
 
 
- constructor(private userService: UserService) {}
+  // Clicked Edit
+  editUser(user: User) {
+    this.editingUpdateId.set(user.id!);
+    this.name.set(user.name);
+    this.email.set(user.email);
+
+  }
+
+  constructor(private userService: UserService) { }
 
   // ngOnInit(){
   //   this.userService.getUsers().subscribe((data:any)=>{
@@ -31,41 +40,76 @@ export class App {
   //   })
   // }
 
-   ngOnInit(){
-   this.loadUsers();
+  ngOnInit() {
+    this.loadUsers();
   }
 
-  loadUsers(){
-    this.userService.getUsers().subscribe(data=>
-      {this.users.set(data)}
+  loadUsers() {
+    this.userService.getUsers().subscribe(data => { this.users.set(data) }
     )
   }
 
-  submitForm(){
-    const payload: User={
-      name:this.name(),
-      email:this.email(),
-      isActive:false
-    };
-    this.userService.addUser(payload).subscribe(()=>{
+  //Add and Update User
+
+  // submitForm() {
+  //   const payload: User = {
+  //     name: this.name(),
+  //     email: this.email(),
+  //     isActive: false
+  //   };
+
+  //   //Update User
+  //   if (this.editingUpdateId() != null) {
+  //     this.userService.updateUser(
+  //       this.editingUpdateId()!,
+  //       payload
+  //     ).subscribe(() => {
+  //       alert('User Update Successfully');
+  //       this.afterSave();
+  //     })
+  //   }
+  //   else{
+  //     this.userService.addUser(payload).subscribe(() => {
+  //     alert('User Added Successfully');
+  //     this.afterSave();
+  //   })
+  //   }
+    
+  // }
+
+  submitForm() {
+  const payload: User = {
+    name: this.name(),
+    email: this.email(),
+    isActive: false
+  };
+
+  // ✅ Update
+  if (this.editingUpdateId() != null) {
+    this.userService.updateUser(
+      this.editingUpdateId()!,
+      payload
+    ).subscribe(() => {
+      alert('User Updated Successfully');
+      this.afterSave();
+    });
+
+  } 
+  // ✅ Add
+  else {
+    this.userService.addUser(payload).subscribe(() => {
       alert('User Added Successfully');
-      this.loadUsers();
-      this.name.set('');
-      this.email.set('');
-    })
+      this.afterSave();
+    });
   }
-//   loading = true;
+}
 
-// ngOnInit(){
-//   this.userService.getUsers().subscribe((data:any)=>{
-//     this.users = data;
-//     this.loading = false;
-//   });
-// }
-
-
-  // userservice=inject(UserService);
-  // users=toSignal<User[]>(this.userservice.getUsers());
+  afterSave() {
+    this.loadUsers();
+    this.name.set('');
+    this.email.set('');
+    this.editingUpdateId.set(null);
+  }
 
 
 }

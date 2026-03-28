@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   // apiURL='https://jsonplaceholder.typicode.com/users';
 
-  apiURL='http://localhost:3000/users '
+  apiURL='http://localhost:3000/users'
   constructor(private http:HttpClient){}
 
   getUsers():Observable<User[]>{
@@ -21,4 +21,8 @@ export class UserService {
 {
   return this.http.post<User>(this.apiURL,user);
 }
+
+  updateUser(id:number, user:User):Observable<User>{
+    return this.http.put<User>(`${this.apiURL}/${id}`,user);
+  }
 }
