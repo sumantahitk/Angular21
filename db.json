@@ -1,27 +1,19 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "Alice",
-      "email": "alice@gmail.com",
-      "isActive": true
+      "status": true,
+      "id": "1"
     },
     {
-      "name": "Ram",
-      "email": "ram@gmail.com",
-      "isActive": false,
+      "status": false,
       "id": "q_K3PE4_a1k"
     },
     {
-      "name": "Raj",
-      "email": "raj@gmail.com",
-      "isActive": false,
+      "status": false,
       "id": "npFQmGdSayI"
     },
     {
-      "name": "Rahul",
-      "email": "rahul@gmail.com",
-      "isActive": false,
+      "status": false,
       "id": "9d0QX2BQ33E"
     },
     {

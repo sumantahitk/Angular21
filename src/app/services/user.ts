@@ -25,4 +25,9 @@ export class UserService {
   updateUser(id:number, user:User):Observable<User>{
     return this.http.put<User>(`${this.apiURL}/${id}`,user);
   }
+
+    updateUserStatus(id:number, status:boolean):Observable<User>{
+    return this.http.put<User>(`${this.apiURL}/${id}`,{status});
+  }
+
 }
