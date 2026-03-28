@@ -2,31 +2,55 @@
   "users": [
     {
       "status": true,
-      "id": "1"
+      "id": "7-KL9xYt2AB"
     },
     {
-      "status": false,
-      "id": "q_K3PE4_a1k"
+      "name": "Charlie",
+      "email": "charlie@gmail.com",
+      "isActive": true,
+      "id": "5-DF3GhJkL9"
     },
     {
-      "status": false,
-      "id": "npFQmGdSayI"
-    },
-    {
-      "status": false,
-      "id": "9d0QX2BQ33E"
-    },
-    {
-      "name": "Alice ",
-      "email": "alice@gmail.com",
+      "name": "David",
+      "email": "david@gmail.com",
       "isActive": false,
-      "id": "3-PN1rN8DCI"
+      "id": "2-AS8LmN0PQ"
     },
     {
-      "name": "hel",
-      "email": "h@gmail.com",
+      "name": "Eva",
+      "email": "eva@gmail.com",
+      "isActive": true,
+      "id": "9-ZX6CvB1MN"
+    },
+    {
+      "name": "Frank",
+      "email": "frank@gmail.com",
       "isActive": false,
-      "id": "7cRIkaFTP4U"
+      "id": "4-RT5YuI8OP"
+    },
+    {
+      "name": "Grace",
+      "email": "grace@gmail.com",
+      "isActive": true,
+      "id": "6-HJ2KlM3NB"
+    },
+    {
+      "name": "Hannah",
+      "email": "hannah@gmail.com",
+      "isActive": false,
+      "id": "1-QW7ErT9YU"
+    },
+    {
+      "name": "Ivy",
+      "email": "ivy@gmail.com",
+      "isActive": true,
+      "id": "8-PL4OkM2JN"
+    },
+    {
+      "name": "Jack",
+      "email": "jack@gmail.com",
+      "isActive": false,
+      "id": "0-MN8BhV5CX"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

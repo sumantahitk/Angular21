@@ -30,4 +30,9 @@ export class UserService {
     return this.http.put<User>(`${this.apiURL}/${id}`,{status});
   }
 
+   deleteUser(id:number):Observable<void>{
+     return this.http.delete<void>(`${this.apiURL}/${id}`);
+  }
+
+
 }

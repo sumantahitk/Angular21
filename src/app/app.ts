@@ -111,6 +111,17 @@ export class App {
     this.editingUpdateId.set(null);
   }
 
+  deleteUser(user:User){
+    const confirmDelete= confirm(`Are you sure you want to delete ${user.name}`);
+    if(!confirmDelete) return;
+
+    this.userService.deleteUser(user.id!).subscribe(()=>{
+      this.users.update(list=>
+        list.filter(u=> u.id !==user.id)
+      )
+    })
+
+  }
   toggleStatus(user:User){
     this.userService.updateUserStatus(user.id!,!user.isActive).subscribe(()=>{
       this.users.update(list=>
