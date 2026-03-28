@@ -1,23 +1,48 @@
-<h3>User List</h3>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
 
-<input type="text" placeholder="Enter name" [value]="name()" (input)="name.set($event.target.value)">
+      <h2 class="text-primary">Welcome to Our Application</h2>
 
-<input type="email" placeholder="Enter email" [value]="email()" (input)="email.set($event.target.value)">
+      <p>
+        This is a sample application demonstrating the use of Bootstrap in Angular.
+      </p>
+
+      <ul>
+        <li>Feature 1: User Authentication</li>
+        <li>Feature 2: Data Visualization</li>
+        <li>Feature 3: Real-time Updates</li>
+      </ul>
+
+      <hr>
+
+      <!-- Bootstrap Buttons -->
+      <button type="button" class="btn btn-primary me-2">Primary</button>
+      <button type="button" class="btn btn-secondary me-2">Secondary</button>
+      <button type="button" class="btn btn-success me-2">Success</button>
+      <button type="button" class="btn btn-danger me-2">Danger</button>
+      <button type="button" class="btn btn-warning me-2">Warning</button>
+      <button type="button" class="btn btn-info me-2">Info</button>
+      <button type="button" class="btn btn-light me-2">Light</button>
+      <button type="button" class="btn btn-dark me-2">Dark</button>
+      <button type="button" class="btn btn-link">Link</button>
+
+    </div>
+  </div>
+</div>
 
 
-<button (click)="submitForm()" >{{editingUpdateId() ? 'Update User' : 'Add User'}}</button>
 
-<hr>
-
-<h2>User List</h2>
-<ul>
-    @for (user of users() ; track user.id!){
-        <li>{{user.name}} - {{user.email}}
-            <strong>{{user.isActive? 'Active' : 'InActive'}}</strong>
-        </li>
-        <button (click)="editUser(user)">Edit User</button>
-        <button (click)="toggleStatus(user)">{{user.isActive? 'Deactive' : 'Active'}}</button>
-        <button (click)="deleteUser(user)">Delete User</button>
-    }
-</ul>
-
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <input 
+        
+        class="form-control"
+        [value]="name()"
+        (input)="name.set($event.target.value)"
+        placeholder="Name" />
+    </div>
+    <button class="btn btn-success" (click)="submit()">Save user</button>
+  </div>
+</div>
